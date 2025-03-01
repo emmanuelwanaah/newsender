@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SMS & Call Manager</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    
+</head>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">SMS & Call Manager</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('send-sms')">Send SMS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('sent-messages')">Sent Messages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('received-messages')">Received Messages</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('incoming-calls')">Incoming Calls</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('received-calls')">Received Calls</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="showTab('make-call')">Make Call</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content Sections -->
+    <div class="container-fluid p-5 text-center">
+        
+        <!-- Send SMS -->
+        <div id="send-sms" class="tab-content active">
+            <h2><i class="fas fa-comment-dots"></i> Send SMS</h2>
+            <input type="text" id="sender" class="form-control my-2" placeholder="Sender Name">
+            <input type="text" id="numbers" class="form-control my-2" placeholder="Recipient Numbers (comma-separated)">
+            <textarea id="message" class="form-control my-2" placeholder="Enter message..."></textarea>
+            <button class="btn btn-success mt-3" onclick="sendSMS()">Send</button>
+        </div>
+
+        <!-- Sent Messages -->
+        <div id="sent-messages" class="tab-content">
+            <h2><i class="fas fa-paper-plane"></i> Sent Messages</h2>
+            <p class="text-muted">No sent messages yet.</p>
+        </div>
+        
+        <!-- Received Messages -->
+        <div id="received-messages" class="tab-content">
+            <h2><i class="fas fa-inbox"></i> Received Messages</h2>
+            <p class="text-muted">No received messages yet.</p>
+        </div>
+        
+        <!-- Incoming Calls -->
+        <div id="incoming-calls" class="tab-content">
+            <h2><i class="fas fa-phone-volume"></i> Incoming Calls</h2>
+            <p class="text-muted">No incoming calls at the moment.</p>
+        </div>
+        
+        <!-- Received Calls -->
+        <div id="received-calls" class="tab-content">
+            <h2><i class="fas fa-phone-alt"></i> Received Calls</h2>
+            <p class="text-muted">No calls received yet.</p>
+        </div>
+
+        <!-- Make a Call -->
+       <!-- Make a Call - Dialer Interface -->
+<div id="make-call" class="tab-content">
+  <h2><i class="fas fa-phone"></i> Dialer</h2>
+  
+  <!-- Display entered number -->
+  <div class="dialer-display mb-3">
+      <input type="text" id="call-number" class="form-control text-center fs-3" readonly>
+  </div>
+
+  <!-- Dialer Buttons -->
+  <div class="dialer-grid">
+      <button class="dial-btn" onclick="addToDialer('1')">1</button>
+      <button class="dial-btn" onclick="addToDialer('2')">2</button>
+      <button class="dial-btn" onclick="addToDialer('3')">3</button>
+      <button class="dial-btn" onclick="addToDialer('4')">4</button>
+      <button class="dial-btn" onclick="addToDialer('5')">5</button>
+      <button class="dial-btn" onclick="addToDialer('6')">6</button>
+      <button class="dial-btn" onclick="addToDialer('7')">7</button>
+      <button class="dial-btn" onclick="addToDialer('8')">8</button>
+      <button class="dial-btn" onclick="addToDialer('9')">9</button>
+      <button class="dial-btn" onclick="addToDialer('*')">*</button>
+      <button class="dial-btn" onclick="addToDialer('0')">0</button>
+      <button class="dial-btn" onclick="addToDialer('#')">#</button>
+  </div>
+
+  <!-- Call & Clear Buttons -->
+  <div class="dialer-controls mt-3">
+      <button class="btn btn-danger me-2" onclick="clearDialer()"><i class="fas fa-backspace"></i></button>
+      <button class="btn btn-success" onclick="makeCall()"><i class="fas fa-phone"></i></button>
+  </div>
+</div>
+
+
+    </div>
+
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
